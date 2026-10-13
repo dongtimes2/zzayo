@@ -1,5 +1,8 @@
 # WIE
 
+> This project is based on [wie](https://github.com/dlunch/wie), created by Inseok Lee.
+> 이 저장소는 원본 WIE에 터치 입력(`wie-web/src/ts/touch.ts`)을 추가하고 광고·분석·Sentry를 뺀 개인용 수정본입니다.
+
 [Homepage](https://wie-site.dlunch.net) | [Try in browser](https://wie.dlunch.net)
 
 A standalone emulator for old mobile apps based on WIPI, SKVM or J2ME.

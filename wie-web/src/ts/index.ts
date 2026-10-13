@@ -15,10 +15,8 @@ const main = async () => {
   const native = isTauri();
   document.documentElement.classList.add(native ? "native" : "browser");
   const output = document.getElementById("player-output") as HTMLDivElement;
-  const browserScripts = document.getElementById("browser-scripts") as HTMLTemplateElement;
   if (native) {
     output.className = "native-preparation";
-    document.querySelector(".library-ad")!.remove();
     document.getElementById("enable-wasm-aot")!.closest("label")!.remove();
   } else {
     output.className = "canvas-wrapper";
@@ -27,9 +25,7 @@ const main = async () => {
     canvas.width = 240;
     canvas.height = 320;
     output.prepend(canvas);
-    document.head.append(document.importNode(browserScripts.content, true));
   }
-  browserScripts.remove();
 
   const backend = await initializeWie();
   const libraryView = document.getElementById("library-view") as HTMLDivElement;

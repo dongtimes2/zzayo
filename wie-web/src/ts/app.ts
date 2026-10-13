@@ -2,6 +2,7 @@ import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Settings, createIcons } from
 
 import type { LibraryApp, PlayerSession, Wie } from "./backend";
 import type { SettingsController } from "./settings";
+import { attachTouch } from "./touch";
 
 const KEY_MAP: Record<string, string> = {
   Digit1: "1",
@@ -107,6 +108,8 @@ export const runApp = (backend: Wie, app: LibraryApp, settings: SettingsControll
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) releaseKeys();
   }, { signal: abortController.signal });
+
+  attachTouch(app.id, setKey, abortController.signal);
 
   for (const button of buttons) {
     const key = button.dataset.key!;

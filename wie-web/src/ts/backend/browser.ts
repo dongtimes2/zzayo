@@ -1,5 +1,4 @@
 import { extractAppMetadata, WieWeb } from "@pkg";
-import * as Sentry from "@sentry/browser";
 
 import { AppLibraryStore } from "../app_library_store";
 import type { LibraryApp, PlayerSession, Wie } from "../backend";
@@ -7,9 +6,6 @@ import { configStore } from "../config_store";
 import { setMasterVolume, setPcmVolume } from "../midi";
 
 export const initializeWie = async (): Promise<Wie> => {
-  Sentry.init({
-    dsn: "https://fa9187d6bd7dd43ae621f26d33641f81@o106536.ingest.us.sentry.io/4512048969678848",
-  });
   const store = await AppLibraryStore.open();
 
   const backend: Wie = {
